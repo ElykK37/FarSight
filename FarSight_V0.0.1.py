@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-RIOT_API_KEY = "RGAPI-8abd2e04-c69b-4a53-b0fa-60a0e0147cd9" 
+RIOT_API_KEY = "" 
 region = "na1"
 
 # Lockfile functions
