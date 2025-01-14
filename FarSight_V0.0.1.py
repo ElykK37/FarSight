@@ -63,7 +63,7 @@ def check_queue_status():
     ready_check_url = f"https://127.0.0.1:{lockfile['port']}/lol-matchmaking/v1/ready-check"
     response = requests.get(ready_check_url, headers=headers, verify=False)
     if response.status_code == 200:
-        return "Ready Check"
+        return "In Queue"
 
     matchmaking_url = f"https://127.0.0.1:{lockfile['port']}/lol-matchmaking/v1/search"
     response = requests.get(matchmaking_url, headers=headers, verify=False)
@@ -85,7 +85,7 @@ def create_window():
     def update_status():
         try:
             status = check_queue_status()
-            status_label.config(text=f"Status: {status}")
+            status_label.config(text=f"{status}")
             root.after(2000, update_status)
         except Exception as e:
             status_label.config(text=f"Error: {e}")
@@ -95,7 +95,7 @@ def create_window():
     summoner_level = summoner_info.get("summonerLevel", "Unknown")
 
     root = tk.Tk()
-    root.title(f"Summoner: {game_name}")
+    root.title(f"FarSight")
     root.geometry("400x200")
 
     tk.Label(root, text=f"Summoner: {game_name}", font=("Arial", 14)).pack(pady=10)
